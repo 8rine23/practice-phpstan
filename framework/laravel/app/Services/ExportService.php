@@ -23,7 +23,7 @@ class ExportService
 
     /**
      * Error: Accessing undefined property
-     * PHPStan Level 0: undefined property
+     * PHPStan Level 1: undefined property
      * (Public method for demonstration - not used)
      */
     public function getFormat(): string

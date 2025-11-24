@@ -62,7 +62,7 @@ class TodoController extends Controller
 
     /**
      * Error: Accessing undefined variable
-     * PHPStan Level 0: undefined variable
+     * PHPStan Level 1: undefined variable
      * (Method for demonstration - not used in routes)
      */
     public function sortTodosByCustomOrder(): void
@@ -75,7 +75,7 @@ class TodoController extends Controller
 
     /**
      * Error: Calling undefined method
-     * PHPStan Level 0: undefined method
+     * PHPStan Level 1: undefined method
      * (Method for demonstration - not used in routes)
      */
     public function validateTodoTitle(string $title): void
@@ -86,7 +86,7 @@ class TodoController extends Controller
 
     /**
      * Error: Accessing undefined property
-     * PHPStan Level 0: undefined property
+     * PHPStan Level 1: undefined property
      * (Method for demonstration - not used in routes)
      */
     public function getTotalCompleted(): int
@@ -97,7 +97,7 @@ class TodoController extends Controller
 
     /**
      * NEW Error: Accessing undefined variable
-     * PHPStan Level 0: undefined variable
+     * PHPStan Level 1: undefined variable
      */
     public function bulkDelete(Request $request): RedirectResponse
     {
@@ -113,7 +113,7 @@ class TodoController extends Controller
 
     /**
      * NEW Error: Calling undefined method
-     * PHPStan Level 0: undefined method
+     * PHPStan Level 1: undefined method
      */
     public function archive(): RedirectResponse
     {
@@ -125,7 +125,7 @@ class TodoController extends Controller
 
     /**
      * NEW Error: Accessing undefined property
-     * PHPStan Level 0: undefined property
+     * PHPStan Level 1: undefined property
      */
     public function restore(int $id): RedirectResponse
     {

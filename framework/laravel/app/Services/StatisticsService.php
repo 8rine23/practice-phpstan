@@ -26,7 +26,7 @@ class StatisticsService
 
     /**
      * Error: Accessing undefined property
-     * PHPStan Level 0: undefined property
+     * PHPStan Level 1: undefined property
      */
     public function getCachedData(): mixed
     {
@@ -36,7 +36,7 @@ class StatisticsService
 
     /**
      * Error: Calling undefined method
-     * PHPStan Level 0: undefined method
+     * PHPStan Level 1: undefined method
      */
     public function refresh(): void
     {
@@ -55,7 +55,7 @@ class StatisticsService
 
     /**
      * NEW Error: Accessing undefined variable
-     * PHPStan Level 0: undefined variable
+     * PHPStan Level 1: undefined variable
      */
     public function getWeeklyStats(): array
     {

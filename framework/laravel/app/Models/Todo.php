@@ -20,7 +20,7 @@ class Todo extends Model
 
     /**
      * Error: Accessing undefined property
-     * PHPStan Level 0: undefined property
+     * PHPStan Level 1: undefined property (detected by Larastan)
      */
     public function getPriorityLevel(): ?string
     {

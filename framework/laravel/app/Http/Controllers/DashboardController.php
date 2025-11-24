@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
     /**
      * Error: Calling undefined method
-     * PHPStan Level 0: undefined method
+     * PHPStan Level 1: undefined method
      * (Method for demonstration - not used in routes)
      */
     public function progress(): array
@@ -43,7 +43,7 @@ class DashboardController extends Controller
 
     /**
      * Error: Instantiating undefined class
-     * PHPStan Level 0: undefined class
+     * PHPStan Level 1: undefined class
      * (Method for demonstration - not used in routes)
      */
     public function generateReport(): string

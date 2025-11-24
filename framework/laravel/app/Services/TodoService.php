@@ -75,7 +75,7 @@ class TodoService
 
     /**
      * Error: Accessing undefined variable
-     * PHPStan Level 0: undefined variable
+     * PHPStan Level 1: undefined variable
      * (Public method for demonstration - not used)
      */
     public function addUserIdToData(array $data): array
@@ -88,7 +88,7 @@ class TodoService
 
     /**
      * Error: Calling undefined function
-     * PHPStan Level 0: undefined function
+     * PHPStan Level 1: undefined function
      * (Public method for demonstration - not used)
      */
     public function calculateCompletionPercentage(int $completed, int $total): float
@@ -99,7 +99,7 @@ class TodoService
 
     /**
      * Error: Accessing undefined static property
-     * PHPStan Level 0: undefined static property
+     * PHPStan Level 1: undefined static property
      * (Public method for demonstration - not used)
      */
     public function getExportFormat(): string
@@ -110,7 +110,7 @@ class TodoService
 
     /**
      * NEW Error: Calling undefined function
-     * PHPStan Level 0: undefined function
+     * PHPStan Level 1: undefined function
      * (Public method for demonstration - not used)
      */
     public function notifyUserAboutTodo(int $todoId): void
@@ -125,7 +125,7 @@ class TodoService
 
     /**
      * NEW Error: Instantiating undefined class
-     * PHPStan Level 0: undefined class
+     * PHPStan Level 1: undefined class
      * (Public method for demonstration - not used)
      */
     public function createReport(): string
