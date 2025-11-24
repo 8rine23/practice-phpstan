@@ -63,13 +63,13 @@ parameters:
 ```
 framework/
 ├── phpstan.neon                    # PHPStan設定（Level 1）
-├── phpstan-baseline.neon           # ベースラインファイル（18エラー）
+├── phpstan-baseline.neon           # ベースラインファイル（19エラー）
 ├── nginx.conf                      # Nginx設定
 ├── compose.yaml                    # Docker Compose設定
 └── laravel/                        # Laravelプロジェクト
     ├── app/
     │   ├── Http/Controllers/
-    │   │   ├── TodoController.php      # CRUD操作（6エラー）
+    │   │   ├── TodoController.php      # CRUD操作（7エラー）
     │   │   └── DashboardController.php # ダッシュボード（3エラー）
     │   ├── Models/
     │   │   └── Todo.php                # TODOモデル（1エラー）
@@ -227,7 +227,7 @@ $ docker compose run --rm app sh -c "cd laravel && ./vendor/bin/phpstan analyse 
 [OK] Baseline generated with 19 errors.
 ```
 
-**注意**: "19 errors"と表示されているが、これはベースラインエントリ数（19個）を示している。実際のエラー数は18個（`count: 2`のエントリが存在するため）。
+**注意**: ベースラインには19個のエラーが記録されています。この中には、同一箇所で2回カウントされるエラー（TodoController.php:135の`$restoredItems`）が含まれています。
 
 ### ベースラインファイル
 
@@ -242,7 +242,7 @@ parameters:
             identifier: property.notFound
             count: 1
             path: laravel/app/Models/Todo.php
-        # ... (他のエラー17個)
+        # ... (他のエラー18個)
 ```
 
 **エントリ情報**:
@@ -269,7 +269,7 @@ $ docker compose run --rm app sh -c "cd laravel && ./vendor/bin/phpstan analyse 
  [OK] No errors
 ```
 
-✅ **ベースライン機能により18個のエラーが正常に無視された**
+✅ **ベースライン機能により19個のエラーが正常に無視された**
 
 ---
 
@@ -279,17 +279,17 @@ $ docker compose run --rm app sh -c "cd laravel && ./vendor/bin/phpstan analyse 
 
 | ファイル | エラー数 | 主なエラータイプ |
 |---------|---------|-----------------|
-| TodoController.php | 6個 | 未定義変数、未定義メソッド、未定義プロパティ |
+| TodoController.php | 7個 | 未定義変数、未定義メソッド、未定義プロパティ |
 | DashboardController.php | 3個 | 未定義メソッド、未定義クラス |
 | TodoService.php | 4個 | 未定義変数、未定義関数、未定義クラス、未定義静的プロパティ |
 | StatisticsService.php | 3個 | 未定義プロパティ、未定義メソッド、未定義変数 |
 | **Todo.php** | **1個** | **未定義プロパティ（Level 1で新規検出）** |
 | ExportService.php | 1個 | 未定義プロパティ |
-| **合計** | **18個** | |
+| **合計** | **19個** | |
 
 ### ベースラインに含まれるエラー一覧
 
-#### 1. TodoController.php（6エラー）
+#### 1. TodoController.php（7エラー）
 
 | エラータイプ | メソッド | 詳細 | 出現回数 |
 |------------|---------|------|---------|
@@ -298,7 +298,7 @@ $ docker compose run --rm app sh -c "cd laravel && ./vendor/bin/phpstan analyse 
 | 未定義プロパティ | `getTotalCompleted()` | `$totalCompleted` | 1 |
 | 未定義変数 | `bulkDelete()` | `$deletedCount` | 1 |
 | 未定義メソッド | `archive()` | `archiveOldTodos()` | 1 |
-| 未定義プロパティ | `restore()` | `$restoredItems` | 1 |
+| 未定義プロパティ | `restore()` | `$restoredItems` | 2 |
 
 #### 2. DashboardController.php（3エラー）
 
@@ -493,7 +493,7 @@ public function index(): View
 
 ### ベースラインの仕組み
 
-1. **既存エラーの記録**: `phpstan-baseline.neon`に18個のエラーを記録
+1. **既存エラーの記録**: `phpstan-baseline.neon`に19個のエラーを記録
 2. **エラーの無視**: 記録されたエラーはPHPStan実行時に無視される
 3. **新規エラーのみ検出**: 新たに追加されたエラーのみが報告される
 
@@ -503,7 +503,7 @@ public function index(): View
 
 1. **既存エラーの無視**
    ```bash
-   # 18個のエラーが存在するが
+   # 19個のエラーが存在するが
    [OK] No errors
    ```
 
@@ -652,7 +652,7 @@ class TodoController extends Controller
 #### ✅ 達成した目標
 
 1. **PHPStan Level 1での検証完了**
-   - 18個のエラーを検出
+   - 19個のエラーを検出
    - ベースラインで正常に管理
 
 2. **Webアプリケーション正常動作確認**
@@ -671,8 +671,8 @@ class TodoController extends Controller
 
 | 項目 | 結果 |
 |------|------|
-| 総エラー数 | 18個 |
-| ベースラインエントリ | 19個 |
+| 総エラー数 | 19個 |
+| ベースラインエントリ | 18個 |
 | Webアプリ動作 | ✅ 全ルート正常 |
 | PHPStan結果 | `[OK] No errors` |
 | Larastan効果 | ✅ Eloquentチェック強化 |
@@ -696,7 +696,7 @@ class TodoController extends Controller
 #### 短期的な改善（1-3ヶ月）
 
 1. **ベースラインエラーの削減**
-   - 目標: 18個 → 10個以下
+   - 目標: 19個 → 10個以下
    - 未使用メソッドの削除
    - 軽微なエラーの修正
 
@@ -749,7 +749,7 @@ class TodoController extends Controller
 ### プロジェクトファイル
 
 - [phpstan.neon](../framework/phpstan.neon) - PHPStan設定（Level 1）
-- [phpstan-baseline.neon](../framework/phpstan-baseline.neon) - ベースライン（18エラー）
+- [phpstan-baseline.neon](../framework/phpstan-baseline.neon) - ベースライン（19エラー）
 - [README.md](../framework/README.md) - Frameworkプロジェクト説明
 
 ---
