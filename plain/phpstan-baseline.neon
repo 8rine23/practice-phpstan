@@ -1,0 +1,121 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property App\\\\Calculator\\:\\:\\$lastResult\\.$#"
+			count: 1
+			path: src/Calculator.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Calculator\\:\\:calculatePower\\(\\)\\.$#"
+			count: 1
+			path: src/Calculator.php
+
+		-
+			message: "#^Undefined variable\\: \\$result$#"
+			count: 1
+			path: src/Calculator.php
+
+		-
+			message: "#^Access to an undefined property App\\\\MagicTodo\\:\\:\\$unknownProperty\\.$#"
+			count: 1
+			path: src/MagicTodo.php
+
+		-
+			message: "#^Call to an undefined method App\\\\MagicTodo\\:\\:unknownMethod\\(\\)\\.$#"
+			count: 1
+			path: src/MagicTodo.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Todo\\:\\:\\$priority\\.$#"
+			count: 1
+			path: src/Todo.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Todo\\:\\:formatDisplay\\(\\)\\.$#"
+			count: 1
+			path: src/Todo.php
+
+		-
+			message: "#^Call to an undefined method App\\\\TodoCommand\\:\\:showVersion\\(\\)\\.$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Function convertToJson not found\\.$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Instantiated class App\\\\TodoReporter not found\\.$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Undefined variable\\: \\$count$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Undefined variable\\: \\$totalTasks$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Variable \\$message might not be defined\\.$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Variable \\$selected might not be defined\\.$#"
+			count: 1
+			path: src/TodoCommand.php
+
+		-
+			message: "#^Access to an undefined property App\\\\TodoRepository\\:\\:\\$completedTotal\\.$#"
+			count: 1
+			path: src/TodoRepository.php
+
+		-
+			message: "#^Undefined variable\\: \\$undefinedId$#"
+			count: 1
+			path: src/TodoRepository.php
+
+		-
+			message: "#^Access to an undefined static property App\\\\TodoService\\:\\:\\$version\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Function formatStatistics not found\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Instantiated class App\\\\TodoExporter not found\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Method App\\\\TodoService\\:\\:createTodo\\(\\) invoked with 4 parameters, 1\\-3 required\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Variable \\$found might not be defined\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Variable \\$title might not be defined\\.$#"
+			count: 1
+			path: src/TodoService.php
+
+		-
+			message: "#^Access to an undefined property App\\\\User\\:\\:\\$address\\.$#"
+			count: 1
+			path: src/User.php
+
+		-
+			message: "#^Call to an undefined method App\\\\User\\:\\:formatInfo\\(\\)\\.$#"
+			count: 1
+			path: src/User.php

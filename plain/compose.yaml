@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PHP_VERSION: ${PHP_VERSION:-7.3}
+        COMPOSER_VERSION: ${COMPOSER_VERSION:-1.10.27}
+    container_name: phpstan-plain
+    volumes:
+      - ./:/app
+    tty: true
+    stdin_open: true

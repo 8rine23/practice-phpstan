@@ -1,0 +1,12 @@
+includes:
+    - ./laravel/vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 1
+    paths:
+        - laravel/app
+        - laravel/routes
+    excludePaths:
+        - laravel/app/Providers/*
+    tmpDir: laravel/storage/phpstan

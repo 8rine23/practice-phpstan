@@ -1,0 +1,37 @@
+# Environment
+.env
+
+# Laravel
+/laravel/vendor/
+/laravel/node_modules/
+/laravel/storage/*.key
+/laravel/.env
+/laravel/.env.backup
+/laravel/.phpunit.result.cache
+/laravel/Homestead.json
+/laravel/Homestead.yaml
+/laravel/auth.json
+/laravel/npm-debug.log
+/laravel/yarn-error.log
+
+# Database
+/laravel/database/database.sqlite
+/laravel/database/database.sqlite-journal
+
+# PHPStan
+/laravel/storage/phpstan/
+phpstan-baseline.neon
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nginx logs
+nginx-logs/
